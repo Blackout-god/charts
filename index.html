@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Animated Charts</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="charts-container">
+
+  <div class="chart-wrapper">
+    <h3>Cost Per Acquisition (CPA)</h3>
+    <div class="chart cpa-chart">
+      <div class="bar-group">
+        <div class="bar" style="--height: 100%; --bar-color: #555c66;">
+          <div class="tooltip">88 PLN</div>
+        </div>
+        <span class="label">BEFORE</span>
+      </div>
+      <div class="bar-group">
+        <div class="bar" style="--height: 25%; --bar-color: #4FB8E6; animation-delay: 0.2s;">
+          <div class="tooltip">22 PLN</div>
+        </div>
+        <span class="label">AFTER</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="chart-wrapper">
+    <h3>Spend vs. Leads</h3>
+    <div class="chart spend-leads-chart">
+      <div class="bar-group">
+        <div class="bar" style="--height: 100%; --bar-color: #555c66; animation-delay: 0.4s;">
+          <div class="tooltip">16,936 PLN Spend</div>
+        </div>
+         <div class="bar" style="--height: 87%; --bar-color: #91CBBB; animation-delay: 0.6s;">
+          <div class="tooltip">192 Leads</div>
+        </div>
+        <span class="label">BEFORE</span>
+      </div>
+      <div class="bar-group">
+        <div class="bar" style="--height: 29%; --bar-color: #555c66; animation-delay: 0.8s;">
+          <div class="tooltip">4,893 PLN Spend</div>
+        </div>
+        <div class="bar" style="--height: 100%; --bar-color: #91CBBB; animation-delay: 1s;">
+          <div class="tooltip">221 Leads</div>
+        </div>
+        <span class="label">AFTER</span>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>
