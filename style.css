@@ -1,0 +1,118 @@
+/* Базовые стили и контейнер */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+
+body {
+  background-color: transparent;
+  font-family: 'Inter', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.charts-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  width: 100%;
+  max-width: 800px;
+}
+
+.chart-wrapper {
+  flex: 1;
+  min-width: 300px;
+  color: #c7c7c7;
+}
+
+.chart-wrapper h3 {
+  text-align: center;
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+/* Общие стили для графиков */
+.chart {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+  height: 250px;
+  border-left: 2px solid #444;
+  border-bottom: 2px solid #444;
+  padding: 0 20px;
+}
+
+.bar-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.label {
+  font-size: 12px;
+  font-weight: 600;
+}
+
+/* Стили для столбцов (Bars) */
+.bar {
+  position: relative;
+  background-color: var(--bar-color);
+  width: 40px; /* Ширина столбцов */
+  border-radius: 4px 4px 0 0;
+  transition: all 0.3s ease;
+  transform-origin: bottom;
+  
+  /* Анимация появления */
+  animation: grow 1s ease-out forwards;
+}
+
+.spend-leads-chart .bar {
+    width: 30px;
+}
+.spend-leads-chart .bar-group {
+    flex-direction: row;
+    align-items: flex-end;
+}
+
+.bar:hover {
+  filter: brightness(1.2);
+  transform: scale(1.05);
+}
+
+/* Анимация "роста" столбцов */
+@keyframes grow {
+  from {
+    transform: scaleY(0);
+  }
+  to {
+    transform: scaleY(1);
+    height: var(--height); /* Высота из HTML */
+  }
+}
+
+/* Стили для подсказок (Tooltips) */
+.tooltip {
+  position: absolute;
+  bottom: 105%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #222;
+  color: #fff;
+  padding: 6px 10px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+  
+  /* Изначально скрыты */
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  pointer-events: none;
+}
+
+.bar:hover .tooltip {
+  opacity: 1;
+  visibility: visible;
+}
