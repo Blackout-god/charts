@@ -1,4 +1,4 @@
-/* Базовые стили и контейнер */
+/* Базовые стили */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
 
 body {
@@ -22,6 +22,8 @@ body {
   flex: 1;
   min-width: 300px;
   color: #c7c7c7;
+  padding: 20px;
+  border-radius: 10px;
 }
 
 .chart-wrapper h3 {
@@ -54,37 +56,31 @@ body {
   font-weight: 600;
 }
 
-/* === ИСПРАВЛЕННАЯ ЛОГИКА АНИМАЦИИ === */
+/* === НОВАЯ ЛОГИКА АНИМАЦИИ ПО HOVER === */
 .bar {
   position: relative;
   background-color: var(--bar-color);
   width: 40px;
   border-radius: 4px 4px 0 0;
-  transition: filter 0.3s ease;
   
-  /* 1. Задаем финальную высоту через переменную */
+  /* 1. Задаем финальную высоту */
   height: var(--height); 
   
-  /* 2. Готовим к анимации масштабирования */
+  /* 2. Изначально столбец "спрятан" (масштаб по Y = 0) */
+  transform: scaleY(0);
   transform-origin: bottom;
-  transform: scaleY(0); /* Начальное состояние - 0% высоты */
   
-  /* 3. Запускаем анимацию */
-  animation: grow 0.8s ease-out forwards;
-  animation-delay: var(--delay, 0s); /* Применяем задержку из HTML */
+  /* 3. Задаем плавный переход для transform */
+  transition: transform 0.8s ease-out;
+  transition-delay: var(--delay, 0s); /* Применяем задержку из HTML */
 }
 
-/* Ключевые кадры для анимации */
-@keyframes grow {
-  from {
-    transform: scaleY(0);
-  }
-  to {
-    transform: scaleY(1); /* Анимируем до 100% высоты */
-  }
+/* 4. При наведении на ВЕСЬ БЛОК ГРАФИКА (.chart-wrapper)... */
+.chart-wrapper:hover .bar {
+  /* ...столбцы плавно "вырастают" до своего полного размера */
+  transform: scaleY(1);
 }
-/* === КОНЕЦ ИСПРАВЛЕНИЙ === */
-
+/* === КОНЕЦ НОВОЙ ЛОГИКИ === */
 
 /* Адаптация для второго графика */
 .spend-leads-chart .bar-group {
@@ -96,11 +92,7 @@ body {
     width: 35px;
 }
 
-.bar:hover {
-  filter: brightness(1.2);
-}
-
-/* Стили для подсказок (Tooltips) */
+/* Подсказки (Tooltips) */
 .tooltip {
   position: absolute;
   bottom: 105%;
@@ -115,12 +107,10 @@ body {
   white-space: nowrap;
   
   opacity: 0;
-  visibility: hidden;
-  transition: all 0.3s ease;
+  transition: opacity 0.3s ease;
   pointer-events: none;
 }
 
 .bar:hover .tooltip {
   opacity: 1;
-  visibility: visible;
 }
