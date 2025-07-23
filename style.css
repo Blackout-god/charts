@@ -58,36 +58,35 @@ body {
 .bar {
   position: relative;
   background-color: var(--bar-color);
-  width: 40px; /* Ширина столбцов */
+  width: 40px;
   border-radius: 4px 4px 0 0;
-  transition: all 0.3s ease;
-  transform-origin: bottom;
+  transition: filter 0.3s ease;
   
-  /* Анимация появления */
-  animation: grow 1s ease-out forwards;
+  /* ИСПРАВЛЕНИЕ ЗДЕСЬ: Анимируем высоту */
+  height: 0; /* Начальная высота 0 */
+  animation: grow 1.2s ease-out forwards;
 }
 
-.spend-leads-chart .bar {
-    width: 30px;
-}
+/* Адаптация для второго графика */
 .spend-leads-chart .bar-group {
     flex-direction: row;
     align-items: flex-end;
 }
+.spend-leads-chart .bar {
+    width: 30px;
+}
 
 .bar:hover {
   filter: brightness(1.2);
-  transform: scale(1.05);
 }
 
-/* Анимация "роста" столбцов */
+/* ИСПРАВЛЕНИЕ ЗДЕСЬ: Ключевые кадры для анимации высоты */
 @keyframes grow {
   from {
-    transform: scaleY(0);
+    height: 0;
   }
   to {
-    transform: scaleY(1);
-    height: var(--height); /* Высота из HTML */
+    height: var(--height); /* Конечная высота из HTML */
   }
 }
 
@@ -105,7 +104,6 @@ body {
   font-weight: 600;
   white-space: nowrap;
   
-  /* Изначально скрыты */
   opacity: 0;
   visibility: hidden;
   transition: all 0.3s ease;
