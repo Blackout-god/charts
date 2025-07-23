@@ -1,116 +1,22 @@
-/* Базовые стили и контейнер */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
-
 body {
-  background-color: transparent;
-  font-family: 'Inter', sans-serif;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 20px;
+    background-color: #f0f0f0; /* Светлый фон для контраста */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }
 
-.charts-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 40px;
-  width: 100%;
-  max-width: 800px;
-}
-
-.chart-wrapper {
-  flex: 1;
-  min-width: 300px;
-  color: #c7c7c7;
-}
-
-.chart-wrapper h3 {
-  text-align: center;
-  font-size: 16px;
-  font-weight: 600;
-  margin-bottom: 20px;
-}
-
-/* Общие стили для графиков */
-.chart {
-  display: flex;
-  justify-content: space-around;
-  align-items: flex-end;
-  height: 250px;
-  border-left: 2px solid #444;
-  border-bottom: 2px solid #444;
-  padding: 0 20px;
-}
-
-.bar-group {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
-}
-
-.label {
-  font-size: 12px;
-  font-weight: 600;
-}
-
-/* Стили для столбцов (Bars) */
-.bar {
-  position: relative;
-  background-color: var(--bar-color);
-  width: 40px;
-  border-radius: 4px 4px 0 0;
-  transition: filter 0.3s ease;
-  
-  /* ИСПРАВЛЕНИЕ ЗДЕСЬ: Анимируем высоту */
-  height: 0; /* Начальная высота 0 */
-  animation: grow 1.2s ease-out forwards;
-}
-
-/* Адаптация для второго графика */
-.spend-leads-chart .bar-group {
-    flex-direction: row;
+.test-chart {
+    width: 200px;
+    height: 250px;
+    border-bottom: 2px solid #333;
+    display: flex;
+    justify-content: center;
     align-items: flex-end;
 }
-.spend-leads-chart .bar {
-    width: 30px;
-}
 
-.bar:hover {
-  filter: brightness(1.2);
-}
-
-/* ИСПРАВЛЕНИЕ ЗДЕСЬ: Ключевые кадры для анимации высоты */
-@keyframes grow {
-  from {
-    height: 0;
-  }
-  to {
-    height: var(--height); /* Конечная высота из HTML */
-  }
-}
-
-/* Стили для подсказок (Tooltips) */
-.tooltip {
-  position: absolute;
-  bottom: 105%;
-  left: 50%;
-  transform: translateX(-50%);
-  background-color: #222;
-  color: #fff;
-  padding: 6px 10px;
-  border-radius: 4px;
-  font-size: 12px;
-  font-weight: 600;
-  white-space: nowrap;
-  
-  opacity: 0;
-  visibility: hidden;
-  transition: all 0.3s ease;
-  pointer-events: none;
-}
-
-.bar:hover .tooltip {
-  opacity: 1;
-  visibility: visible;
+.test-bar {
+    width: 80px;
+    height: 150px; /* Фиксированная высота */
+    background-color: #007bff; /* Яркий синий цвет */
 }
